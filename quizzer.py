@@ -22,7 +22,7 @@ class Quizzer:
                 question = questions.readline()
                 answer = key.readline()
 
-    def generate_quiz(self):
+    def __generate_quiz(self):
         print("--------------------Questions-------------------")
         for i in range(0, len(self.questions_sequence)):
             output_question = str(i + 1) + \
@@ -61,7 +61,7 @@ class Quizzer:
             # so random questions will be displayed
             self.questions_sequence = random.sample(self.questions_sequence,
                                                     no_of_questions)
-            self.generate_quiz()
+            self.__generate_quiz()
         else:
             print("There are only " + str(len(self.questions)) +
                   " questions available.")
