@@ -1,6 +1,5 @@
 from quizzer import Quizzer
 
-
 if __name__ == "__main__":
     q1 = Quizzer()
     q1.read_questions_with_key("./questions.txt", "./key.txt")
