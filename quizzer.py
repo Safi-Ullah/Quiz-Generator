@@ -15,20 +15,22 @@ class Quizzer:
             answer = key.readline()
             while question and answer:
                 question = question.split('. ')[1].split('\n')[0]
-                anwer = answer.split('. ')[1].split('\n')[0]
+                answer = answer.split('. ')[1].split('\n')[0]
+
                 self.questions.append(Question(question, answer))
+
                 question = questions.readline()
                 answer = key.readline()
 
-    def print_questions(self):
+    def generate_quiz(self):
         print("--------------------Questions-------------------")
         for i in range(0, len(self.questions_sequence)):
-            str_to_print = str(i + 1) + \
+            output_question = str(i + 1) + \
                             ". " + \
                             str(self.questions[self.questions_sequence[i]]) + \
                             '\n'
 
-            print(str_to_print)
+            print(output_question)
             print("Answer - " + str(i + 1) + " :")
             answer = input()
             self.questions[self.questions_sequence[i]].given_answer = answer
@@ -50,7 +52,7 @@ class Quizzer:
                       self.questions[question_no].correct_answer +
                       '\n')
 
-    def generate_quiz(self, no_of_questions):
+    def start_quiz(self, no_of_questions):
         if no_of_questions <= len(self.questions):
             for i in range(0, len(self.questions)):
                 self.questions_sequence.append(i)
@@ -59,6 +61,7 @@ class Quizzer:
             # so random questions will be displayed
             self.questions_sequence = random.sample(self.questions_sequence,
                                                     no_of_questions)
-            self.print_questions()
+            self.generate_quiz()
         else:
-            print("There are only " + str(len(self.questions)) + " questions.")
+            print("There are only " + str(len(self.questions)) +
+                  " questions available.")

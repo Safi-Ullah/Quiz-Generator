@@ -8,10 +8,7 @@ class Question:
         self.given_answer = None
 
     def is_correct(self):
-        if self.correct_answer == self.given_answer:
-            return True
-        else:
-            return False
+        return self.correct_answer == self.given_answer
 
     def __str__(self):
         return str(self.question)
