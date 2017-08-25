@@ -1,15 +1,10 @@
-from quiz import Quiz
-
+from quizzer import Quizzer
 
 if __name__ == "__main__":
-    q1 = Quiz()
-    q1.read_questions("./questions.txt")
-    # key contains the correct answers to questions file
-    q1.read_key("./key.txt")
+    q1 = Quizzer()
+    q1.read_questions_with_key("./questions.txt", "./key.txt")
 
-    # generate_quiz takes no. of questions as input
-    q1.generate_quiz(3)
-    q1.input_answers()
-    q1.verify_answers()
+    # start_quiz takes no. of questions as argument
+    q1.start_quiz(2)
 
-    # Similarly more quizes can be generated the same way
+    q1.generate_result()
